@@ -1,5 +1,6 @@
 package com.example.android_ui;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +14,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.calvin_b_linear_layout);
 
         Log.i(TAG,"onCreate");
+
+        Intent intent=new Intent(this, SecondActivity.class);
+        startActivity(intent);
     }
 
     @Override
