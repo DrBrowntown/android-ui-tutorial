@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Android-Ui</string>
+    <string name="enter_username">Enter Username</string>
 </resources>
