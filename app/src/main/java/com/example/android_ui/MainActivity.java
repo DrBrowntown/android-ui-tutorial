@@ -24,11 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     final String PASSWORD="PASSWORD";
     private EditText usernameEditText;
     private EditText passwordEditText;
-    private Button loginButton;
-    private Button buttonOne;
-    private Button buttonTwo;
-    private Button buttonThree;
-    private Button buttonFour;
+
     private TextView buttonClickedTextView;
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -39,6 +35,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         usernameEditText = (EditText) findViewById(R.id.username_edit_text);
         passwordEditText = (EditText) findViewById(R.id.password_edit_text);
+
+        Button loginButton;
+        Button buttonOne;
+        Button buttonTwo;
+        Button buttonThree;
+        Button buttonFour;
 
         buttonOne = (Button)findViewById(R.id.button_one);
         buttonTwo = (Button)findViewById(R.id.button_two);
