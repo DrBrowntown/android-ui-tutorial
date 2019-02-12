@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -96,12 +97,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        int viewId = view.getId();
+        int viewId = v.getId();
 
         switch (viewId) {
             case R.id.login_button:
                 String username = usernameEditText.getEditableText().toString();
                 String password = passwordEditText.getEditableText().toString();
+
+                if (username.equals(USERNAME) && password.equals(PASSWORD)) {
+                    Toast.makeText(MainActivity.this, "Login Success", Toast.LENGTH_LONG).show();
+                }
+
                 break;
         }
     }
