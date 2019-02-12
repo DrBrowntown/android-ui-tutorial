@@ -7,6 +7,7 @@ import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -16,13 +17,17 @@ import android.widget.Toast;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, View.OnTouchListener {
     final String TAG="MAIN ACTIVITY";
     final String USERNAME="CALVIN";
     final String PASSWORD="PASSWORD";
     private EditText usernameEditText;
     private EditText passwordEditText;
     private Button loginButton;
+    private Button buttonOne;
+    private Button buttonTwo;
+    private Button buttonThree;
+    private Button buttonFour;
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
@@ -112,5 +117,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
         }
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        return false;
     }
 }
