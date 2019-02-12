@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button buttonTwo;
     private Button buttonThree;
     private Button buttonFour;
+    private TextView buttonClickedTextView;
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
@@ -47,6 +49,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonTwo.setOnTouchListener(this);
         buttonThree.setOnTouchListener(this);
         buttonFour.setOnTouchListener(this);
+
+        buttonClickedTextView = (TextView) findViewById(R.id.button_clicked_textview);
 
         loginButton = (Button)findViewById(R.id.login_button);
         loginButton.setOnClickListener(this);
@@ -134,9 +138,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (viewId) {
             case R.id.button_one:
-
-                Toast.makeText(MainActivity.this, "Login Success", Toast.LENGTH_LONG).show();
-
+                buttonClickedTextView.setText("One");
+                break;
+            case R.id.button_two:
+                buttonClickedTextView.setText("Two");
+                break;
+            case R.id.button_three:
+                buttonClickedTextView.setText("Three");
+                break;
+            case R.id.button_four:
+                buttonClickedTextView.setText("Four");
                 break;
         }
         return false;
