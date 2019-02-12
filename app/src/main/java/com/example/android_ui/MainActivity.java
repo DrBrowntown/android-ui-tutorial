@@ -38,6 +38,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         usernameEditText = (EditText) findViewById(R.id.username_edit_text);
         passwordEditText = (EditText) findViewById(R.id.password_edit_text);
 
+        buttonOne = (Button)findViewById(R.id.button_one);
+        buttonTwo = (Button)findViewById(R.id.button_two);
+        buttonThree = (Button)findViewById(R.id.button_three);
+        buttonFour = (Button)findViewById(R.id.button_four);
+
+        buttonOne.setOnTouchListener(this);
+        buttonTwo.setOnTouchListener(this);
+        buttonThree.setOnTouchListener(this);
+        buttonFour.setOnTouchListener(this);
 
         loginButton = (Button)findViewById(R.id.login_button);
         loginButton.setOnClickListener(this);
@@ -121,6 +130,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
+        int viewId = v.getId();
+
+        switch (viewId) {
+            case R.id.button_one:
+
+                Toast.makeText(MainActivity.this, "Login Success", Toast.LENGTH_LONG).show();
+
+                break;
+        }
         return false;
     }
 }
