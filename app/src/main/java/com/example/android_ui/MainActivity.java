@@ -18,13 +18,15 @@ import android.widget.Toast;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, View.OnTouchListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, View.OnTouchListener, View.OnLongClickListener {
     final String TAG="MAIN ACTIVITY";
     final String USERNAME="CALVIN";
     final String PASSWORD="PASSWORD";
+
     private EditText usernameEditText;
     private EditText passwordEditText;
-
+    private Button visibleOneButton;
+    private Button visibleTwoButton;
     private TextView buttonClickedTextView;
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -42,20 +44,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button buttonThree;
         Button buttonFour;
 
+        loginButton = (Button)findViewById(R.id.login_button);
         buttonOne = (Button)findViewById(R.id.button_one);
         buttonTwo = (Button)findViewById(R.id.button_two);
         buttonThree = (Button)findViewById(R.id.button_three);
         buttonFour = (Button)findViewById(R.id.button_four);
+        visibleOneButton = (Button) findViewById(R.id.visible_b_one);
+        visibleTwoButton = (Button) findViewById(R.id.visible_b_two);
 
+        buttonClickedTextView = (TextView) findViewById(R.id.button_clicked_textview);
+
+        loginButton.setOnClickListener(this);
         buttonOne.setOnTouchListener(this);
         buttonTwo.setOnTouchListener(this);
         buttonThree.setOnTouchListener(this);
         buttonFour.setOnTouchListener(this);
 
-        buttonClickedTextView = (TextView) findViewById(R.id.button_clicked_textview);
+        visibleOneButton.setOnClickListener(this);
+        visibleTwoButton.setOnClickListener(this);
 
-        loginButton = (Button)findViewById(R.id.login_button);
-        loginButton.setOnClickListener(this);
+
+
 //        button.setOnClickListener(new OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -131,6 +140,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 break;
+
+            case R.id.visible_b_one:
+                visibleTwoButton.setVisibility(View.INVISIBLE);
+                visibleOneButton.setVisibility(View.VISIBLE);
+                break;
+            case R.id.visible_b_two:
+                visibleOneButton.setVisibility(View.INVISIBLE);
+                visibleTwoButton.setVisibility(View.VISIBLE);
+                break;
         }
     }
 
@@ -152,6 +170,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 buttonClickedTextView.setText("Four");
                 break;
         }
+        return false;
+    }
+
+    @Override
+    public boolean onLongClick(View v) {
         return false;
     }
 }
