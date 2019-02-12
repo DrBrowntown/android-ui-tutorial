@@ -46,13 +46,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.i(TAG,"onCreate");
 
 
-        try {
-            InputStream inputStream= getAssets().open("ic_launcher.png");
-            Drawable drawable=Drawable.createFromStream(inputStream, null);
-            loginButton.setBackground(drawable);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            InputStream inputStream= getAssets().open("ic_launcher.png");
+//            Drawable drawable=Drawable.createFromStream(inputStream, null);
+//            loginButton.setBackground(drawable);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
 
     }
@@ -106,6 +106,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if (username.equals(USERNAME) && password.equals(PASSWORD)) {
                     Toast.makeText(MainActivity.this, "Login Success", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "Wrong username or password", Toast.LENGTH_LONG).show();
                 }
 
                 break;
